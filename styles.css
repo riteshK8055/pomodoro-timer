@@ -51,6 +51,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 
 .buttons button{
@@ -61,7 +62,7 @@ body{
     border-radius: 5px;
     border: none;
     cursor: pointer;
-    
+
 
 }
 
