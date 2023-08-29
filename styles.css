@@ -62,7 +62,14 @@ body{
     border-radius: 5px;
     border: none;
     cursor: pointer;
-
+    background-color: var(--clr);
+    color: #fff;
+    transition: transform 0.4s ease-in-out;
 
 }
 
+.buttons button:hover{
+
+    transform: scale(1.1);
+
+}
