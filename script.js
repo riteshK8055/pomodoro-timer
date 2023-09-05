@@ -39,6 +39,7 @@ const stopTimer = () =>{
     clearInterval(timerID);
     timerID = null;0
 }
+
 // Adding EventListner to start button
 startBtn.addEventListener('click', ()=>{
 
