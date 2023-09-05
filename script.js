@@ -8,6 +8,8 @@ const resetBtn = document.querySelector('.resetBtn');
 const WORK_TIME = 25*60;
 const BREAK_TIME = 5*60;
 
+let timerID = null;
+
 //Function  to countDown
 const countDown = (time) =>{
 
@@ -18,7 +20,7 @@ const countDown = (time) =>{
 
         if(time<0){
 
-            stoptimer();
+            stopTimer();
         }
     }
    
@@ -27,9 +29,16 @@ const countDown = (time) =>{
 // Arrow function to start timer...
 const startTimer = (startTime)=> {
 
-    setInterval(countDown(startTime), 1000);
+    timerID = setInterval(countDown(startTime), 1000);
 }
 
+// Arrow function to stop timer
+
+const stopTimer = () =>{
+
+    clearInterval(timerID);
+    timerID = null;0
+}
 // Adding EventListner to start button
 startBtn.addEventListener('click', ()=>{
 
