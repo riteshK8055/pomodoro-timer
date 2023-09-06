@@ -73,3 +73,27 @@ body{
     transform: scale(1.1);
 
 }
+
+.pomoCountDisplay{
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 30px;
+
+}
+
+.pomoCountDisplay span{
+
+    font-size: 50px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.pomoCountDisplay p{
+
+    font-size: 20px;
+    font-weight: 600;
+
+}
