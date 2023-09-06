@@ -18,6 +18,18 @@ const updateTitle = (msg) =>{
     title.textContent = msg;
 }
 
+
+//Function to save pomodoro counts to local Storage
+const saveLocalCounts = () =>{
+
+    let counts = JSON.parse(localStorage.getItem("pomoCounts"));
+
+    counts !== null ? counts++ : counts =1;
+
+    localStorage.setItem("pomoCounts" , JSON.stringify(counts));
+
+}
+
 //Function  to countDown
 const countDown = (time) =>{
 
@@ -43,7 +55,7 @@ const countDown = (time) =>{
 
                 setTimeout(() => updateTitle("Start timer again"),2000);
                 totalCount++;
-                console.log(totalCount);
+                saveLocalCounts();
             }
         }
     }
