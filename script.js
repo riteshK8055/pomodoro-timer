@@ -3,7 +3,7 @@ const title = document.querySelector('.title');
 const startBtn = document.querySelector('.startBtn');
 const pauseBtn = document.querySelector('.pauseBtn');
 const resumeBtn = document.querySelector('.resumeBtn');
-const resetBtn = document.querySelector('.resetBtn');
+const resetBtn = document.querySelector('.ResetBtn');
 const pomoCountDisplay = document.querySelector(".pomoCountDisplay");
 
 const WORK_TIME = 1*60;
@@ -36,7 +36,9 @@ const countDown = (time) =>{
 
     return() =>{
 
-        timer.textContent = time;
+        const mins = Math.floor(time/60);
+        const secs = Math.floor(time%60);
+        timer.textContent = `${mins}:${secs}`;
         time--;
 
         if(time<0){
@@ -89,6 +91,23 @@ startBtn.addEventListener('click', ()=>{
    timerID =  startTimer(WORK_TIME);
    updateTitle("It's Work Time");
 });
+
+
+//Adding eventListner to reset button
+resetBtn.addEventListener('click',()=>{
+
+    stopTimer();
+    timer.textContent = "25:00";
+
+});
+
+//Adding eventListner to pause button
+pauseBtn.addEventListener('click',()=>{
+
+    stopTimer();
+});
+
+
 
 // Function to show pomodoros to screen from local storage
 const showPomoCounts = () =>{
