@@ -6,8 +6,8 @@ const resumeBtn = document.querySelector('.ResumeBtn');
 const resetBtn = document.querySelector('.ResetBtn');
 const pomoCountDisplay = document.querySelector(".pomoCountDisplay");
 
-const WORK_TIME = 1*60;
-const BREAK_TIME = 0.5*60;
+const WORK_TIME = 25*60;
+const BREAK_TIME = 5*60;
 
 let timerID = null;
 let oneRoundCompleted = false;
