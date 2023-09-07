@@ -106,6 +106,7 @@ resetBtn.addEventListener('click',()=>{
 
     stopTimer();
     timer.textContent = "25:00";
+    updateTitle("Click start to start timer");
 
 });
 
