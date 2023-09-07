@@ -2,7 +2,7 @@ const timer = document.querySelector('.timer');
 const title = document.querySelector('.title');
 const startBtn = document.querySelector('.startBtn');
 const pauseBtn = document.querySelector('.pauseBtn');
-const resumeBtn = document.querySelector('.resumeBtn');
+const resumeBtn = document.querySelector('.ResumeBtn');
 const resetBtn = document.querySelector('.ResetBtn');
 const pomoCountDisplay = document.querySelector(".pomoCountDisplay");
 
@@ -11,7 +11,8 @@ const BREAK_TIME = 0.5*60;
 
 let timerID = null;
 let oneRoundCompleted = false;
-let totalCount;
+let totalCount=0;
+let paused = false;
 
 //function to update  title
 const updateTitle = (msg) =>{
@@ -85,6 +86,13 @@ const stopTimer = () =>{
     timerID = null;
 }
 
+// function to get time is seconds
+const getTimeInSeconds = (timeString) =>{
+
+    const[minutes,seconds] = timeString.split(":");
+    return minutes*60 + parseInt(seconds);
+
+}
 // Adding EventListner to start button
 startBtn.addEventListener('click', ()=>{
 
@@ -105,6 +113,24 @@ resetBtn.addEventListener('click',()=>{
 pauseBtn.addEventListener('click',()=>{
 
     stopTimer();
+    paused =true;
+    updateTitle("Timer Paused");
+
+});
+
+
+//Adding eventListner to resume button
+resumeBtn.addEventListener('click',()=>{
+
+    if(paused){
+
+        const currentTime = getTimeInSeconds(timer.textContent);
+        timerID = startTimer(currentTime);
+        paused = false;
+
+        (!oneRoundCompleted) ? updateTitle("It's Work Time") :updateTitle("it's Break time");
+    }
+
 });
 
 
